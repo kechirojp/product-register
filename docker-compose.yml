@@ -1,0 +1,53 @@
+version: '3'
+
+# フォルダの追加
+volumes:
+  db-data:
+
+# サービスがコンテナになる
+services:
+  web:
+    # カレントディレクトリでビルド
+    build: .
+
+    ports:
+      - '3000:3000'
+
+    # マウント＝＞ホスト（ローカル）はカレントディレクトリ　コンテナは/product-register
+    volumes:
+      - '.:/product-register'
+
+    # 環境変数
+    environment:
+      # ユーザー
+      - 'POSTGRES_USER=postgres'
+      # パスワード
+      - 'DATABASE_PASSWORD=postgres'
+
+    # ttyとは、擬似端末(キーボードによる入力)をコンテナに結びつける設定です。
+    # docker run -it <container_name>の-tにあたる設定です。
+    tty: true
+
+    # stdin_openとは標準入出力とエラー出力をコンテナに結びつける設定です。
+    # docker run -it <container_name>の-iにあたる設定です。
+    stdin_open: true
+
+    # dbサービスが起動したらdbにリンクする
+    depends_on:
+      - db
+    links:
+      - db
+
+
+
+  # データベースの新しいサービス　データベースはdbとつけられることが多い
+  db:
+    image: postgres
+    volumes:
+      # データの永続化を図る　ホスト側のボリュームにマウントしてデータベースを保存
+      # db-dataはvolumes:でつくられたdb-data
+      - 'db-data:/var/lib/postgresql/data'
+
+    environment:
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=postgres'

@@ -2,9 +2,11 @@ sudo: required
 
 services: docker
 
+# Travis CIサーバー上でコンテナをつくりバックグラウンドで起動
 before_install: 
   - docoker-compose up --build -d
 
+# コンテナへの命令
 script: 
   - docoker-compose exec --env 'RAILS_ENV=test' web rails db:create
   - docoker-compose exec --env 'RAILS_ENV=test' web rails db:migrate

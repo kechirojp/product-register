@@ -4,6 +4,11 @@ services: docker
 
 # Travis CIサーバー上でコンテナをつくりバックグラウンドで起動
 before_install: 
+  # 無料プラン(匿名ユーザー)は6時間あたり100pull 制限に引っかからないために
+  # 無料プラン(認証ユーザー)6時間あたり200pullにするため認証を行う
+  # user nameとアクセストークンを記述 
+  # - docker login -u $DOCKER_USERNAME -p $DOCKER_ACCESS_TOKEN
+  - docker login -u kechiro -p dckr_pat_RsgEXuInTMZJbfD_y-pxQ9tTGhg
   - docoker-compose up --build -d
 
 # コンテナへの命令

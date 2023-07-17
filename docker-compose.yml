@@ -20,7 +20,7 @@ services:
     # 環境変数
     environment:
       # ユーザー
-      - 'POSTGRES_USER=postgres'
+      # - 'POSTGRES_USER=postgres'
       # パスワード
       - 'DATABASE_PASSWORD=postgres'
 

@@ -9,10 +9,10 @@ before_install:
   # user nameとアクセストークンを記述 
   # - docker login -u $DOCKER_USERNAME -p $DOCKER_ACCESS_TOKEN
   - docker login -u kechiro -p dckr_pat_RsgEXuInTMZJbfD_y-pxQ9tTGhg
-  - docoker-compose up --build -d
+  - docker-compose up --build -d
 
 # コンテナへの命令
 script: 
-  - docoker-compose exec --env 'RAILS_ENV=test' web rails db:create
-  - docoker-compose exec --env 'RAILS_ENV=test' web rails db:migrate
-  - docoker-compose exec --env 'RAILS_ENV=test' web rails test
+  - docker-compose exec --env 'RAILS_ENV=test' web rails db:create
+  - docker-compose exec --env 'RAILS_ENV=test' web rails db:migrate
+  - docker-compose exec --env 'RAILS_ENV=test' web rails test

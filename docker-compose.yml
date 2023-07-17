@@ -21,7 +21,7 @@ services:
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
-      - DATABASE_PASSWORD=postgres
+      - POSTGRES_PASSWORD=postgres
 
     # ttyとは、擬似端末(キーボードによる入力)をコンテナに結びつける設定です。
     # docker run -it <container_name>の-tにあたる設定です。
@@ -48,7 +48,7 @@ services:
       - 'db-data:/var/lib/postgresql/data'
 
     environment:
-      # - 'POSTGRES_USER=postgres'
-      # - 'POSTGRES_PASSWORD=postgres'
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=postgres'
       # ローカルホスト以外でもpostgresが動くようにする
       - 'POSTGRES_HOST_AUTH_METHOD=trust'

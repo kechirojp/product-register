@@ -10,4 +10,6 @@ WORKDIR /product-register
 # GemfileはRails専用ライブラリインストールツール
 COPY Gemfile Gemfile.lock /product-register/
 # bundle install　はRails専用インストール記述方法
-RUN bundle install
+# RUN bundle install
+RUN gem update --system \
+    && RUN bundle install

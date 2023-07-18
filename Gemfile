@@ -55,7 +55,10 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  # 【Rails】WARN Selenium [DEPRECATION] Selenium::WebDriver::Chrome#driver_path= is deprecatedエラー
+  # https://qiita.com/YotaHamasaki/items/378f4b58fa165cd79244
+  # gem 'chromedriver-helper'
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

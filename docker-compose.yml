@@ -19,7 +19,7 @@ services:
 
     # 環境変数
     environment:
-      POSTGRES_USER: postgres
+      POSTGRES_USER: tokura
       POSTGRES_PASSWORD: nishimukusamurai
 
     # ttyとは、擬似端末(キーボードによる入力)をコンテナに結びつける設定です。
@@ -47,7 +47,7 @@ services:
       - 'db-data:/var/lib/postgresql/data'
 
     environment:
-      POSTGRES_USER: postgres
+      POSTGRES_USER: tokura
       POSTGRES_PASSWORD: nishimukusamurai
       # ローカルホスト以外でもpostgresが動くようにする
-      POSTGRES_HOST_AUTH_METHOD: trust
+      # POSTGRES_HOST_AUTH_METHOD: trust

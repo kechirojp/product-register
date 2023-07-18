@@ -9,7 +9,7 @@ before_install:
   # user nameとアクセストークンを記述 
   # - docker login -u $DOCKER_USERNAME -p $DOCKER_ACCESS_TOKEN
   - docker login -u kechiro -p dckr_pat_RsgEXuInTMZJbfD_y-pxQ9tTGhg
-  - docker-compose up --build -d --no-cache
+  - docker-compose up --build -d
 
 # コンテナへの命令
 script: 

@@ -43,7 +43,8 @@ services:
 
   # データベースの新しいサービス　データベースはdbとつけられることが多い
   db:
-    image: postgres:10.1
+    image: postgres
+    restart: always
     volumes:
       # データの永続化を図る　ホスト側のボリュームにマウントしてデータベースを保存
       # db-dataはvolumes:でつくられたdb-data

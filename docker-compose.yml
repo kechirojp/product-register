@@ -19,9 +19,9 @@ services:
 
     # 環境変数
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - 'POSTGRES_DB=postgres'
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=myPa$sw0rd'
 
     # ttyとは、擬似端末(キーボードによる入力)をコンテナに結びつける設定です。
     # docker run -it <container_name>の-tにあたる設定です。
